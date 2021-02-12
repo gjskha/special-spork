@@ -1,2 +1,1 @@
-# special-spork
-Honest Al's Pre-Owned Algorithm Emporium
+# Honest Al's Pre-Owned Algorithm Emporium
