@@ -1,3 +1,4 @@
+/* Algorithm for deleting specified characters from a string. */
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
@@ -6,23 +7,21 @@ void remove_chars(char *str, char *remove) {
 
 	/* create an array of false for the range of ascii characters */
 	bool flags[128] = {false};
-
-	int i,j = 0;
+	int src,dst = 0;
 
 	/* set the elements corresponding to chars in remove to true */
-	for(i = 0; i < strlen(remove); ++i) {
-		flags[remove[i]] = true;
+	for(src = 0; src < strlen(remove); ++src) {
+		flags[remove[src]] = true;
 	}
 
-	int slen = strlen(str);
-
-	for (i = 0; i < slen; ++i) {
-		if (!flags[str[i]]) {
-			str[j++] = str[i];
+	/* skip anything set to true in flags */
+	for (src = 0; src < strlen(str); ++src) {
+		if (!flags[str[src]]) {
+			str[dst++] = str[src];
 		}
 	}
 
-	str[j] = '\0';
+	str[dst] = '\0';
 
 	printf("%s\n",str);
 	
