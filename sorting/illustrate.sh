@@ -10,12 +10,14 @@ TURQUIOSE="\033[1;36m"
 WHITE="\033[1;37m"
 NO_COLOUR="\033[0m"
 
+# When a new sort is added, update this line
 ALGORITHMS="Bubble Insertion Quit"
 
+# hard-coded for now
 declare -a the_array=(8 4 2 1 7 11)
 a_count=0
 
-#for elem in "${the_array[@]}" ; do
+#for elem in "${the_array[@]}"; do
 #     echo -n "$elem "
 #done
 
@@ -135,7 +137,6 @@ function accept_nums() {
         fi
     done
 
-    #echo a_count is $a_count
 }
 
 function main_loop() {
@@ -157,7 +158,7 @@ function main_loop() {
                     insertionsort the_array 6
                 ;;
                 *)
-                    return
+                    : 
                 ;;
             esac
             break
