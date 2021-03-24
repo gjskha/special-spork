@@ -8,14 +8,16 @@ LIGHT_BLUE="\033[1;34m"
 VIOLET="\033[1;35m"
 TURQUIOSE="\033[1;36m"
 WHITE="\033[1;37m"
-NO_COLOUR="\033[0m"
+PLAIN="\033[0m"
+
+DEBUG=0
 
 # When a new sort is added, update this line
 ALGORITHMS="Bubble Insertion Quit"
 
 # hard-coded for now
 declare -a the_array=(8 4 2 1 7 11)
-a_count=0
+array_size=0
 
 #for elem in "${the_array[@]}"; do
 #     echo -n "$elem "
@@ -48,7 +50,7 @@ function bubblesort() {
         echo -n "Round $n, iteration $this_iteration. Is ${the_array[$this_iteration]} less than ${the_array[$next_cell_up]}?"
 
         if [[ ${the_array[$this_iteration]} -lt ${the_array[$next_cell_up]} ]]; then
-            echo -e "$RED Yes. Switching places $NO_COLOUR "
+            echo -e "$RED Yes. Switching places $PLAIN "
             tmp=${the_array[$this_iteration]}
             the_array[$this_iteration]=${the_array[$next_cell_up]} 
             the_array[$next_cell_up]=$tmp 
@@ -98,7 +100,7 @@ function insertionsort() {
 	while [ $next_cell_down -ge 0 ] && [ ${the_array[$next_cell_down]} -lt $this_iterations_value ] ; do
 	#while [ $next_cell_down -ge 0 ] && [ ${the_array[$next_cell_down]} -lt ${the_array[$this_iteration]} ] ; do
       
-            echo -e "at outer iteration $this_iteration and inner iteration $next_cell_down : $RED $this_iterations_value is greater than ${the_array[$next_cell_down]} $NO_COLOUR "
+            echo -e "at outer iteration $this_iteration and inner iteration $next_cell_down : $RED $this_iterations_value is greater than ${the_array[$next_cell_down]} $PLAIN "
 
             k=$(($next_cell_down + 1))
 	    tmp=${the_array[$k]}
@@ -125,15 +127,15 @@ function insertionsort() {
 
 function accept_nums() {
 
-    echo "Enter a number to sort, or Q for quit:"
+    echo "Enter a number to be sorted, or press Q to quit:"
 
     while [[ true ]]; do
-        read REPLY
-        if [[ $REPLY ==	[Qq] ]]; then
+        read reply
+        if [[ $reply ==	[Qq] ]]; then
             break
         else
             # grab input
-            a_count=$(( a_count + 1 ))
+            array_size=$(( array_size + 1 ))
         fi
     done
 
