@@ -1,3 +1,5 @@
+<?php
+
 // PHP implementation of https://web.archive.org/web/20120704025921/http://cs.mwsu.edu/~griffin/courses/2133/downloads/Spring11/p677-pearson.pdf
 // byte_length varies the length
 
@@ -34,3 +36,4 @@
         }    
         return $output;
     } 
+?>
