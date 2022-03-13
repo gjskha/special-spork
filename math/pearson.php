@@ -5,7 +5,7 @@
 
     function pearson_hash($message) {
         $output = 0; 
-        $byte_len = 2; 
+        $byte_len = 3; 
      
         $table = array( 72, 125, 115, 34, 105, 120, 145, 232, 107, 155, 97, 76, 99, 146, 
             228, 58, 136, 35, 71, 33, 208, 93, 50, 104, 54, 95, 53, 251, 124, 11, 52,
@@ -34,6 +34,6 @@
     
             $output = ($output << 8) + $hash;
         }    
-        return $output;
+        return dechex($output);
     } 
 ?>
