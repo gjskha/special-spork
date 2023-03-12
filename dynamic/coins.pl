@@ -30,7 +30,7 @@ sub coin_change {
 	    $DEBUG && print "$denom[$i] coin -> $j cents -> min $min\n";
             if ($j >= $denom[$i]) {
                 if ($min > 1 + $DP_res[$j-$denom[$i]]) { 
-			$DEBUG && print "but 1 $denom[$i]c coin plus " . $DP_res[$j - $denom[$i]] . " coins is LESS than " . $min . " coins. Swapping.\n";
+			$DEBUG && print "currently we have $min coins for $j cents but 1 $denom[$i]c coin plus " . $DP_res[$j - $denom[$i]] . " coins is LESS than " . $min . " coins. Swapping.\n";
 			$min = 1 + $DP_res[$j-$denom[$i]];
 		} else { 
 		    $DEBUG && print "\n";
@@ -58,4 +58,4 @@ print "=" x 79 . "\n";
 print "=" x 79 . "\n";
 1 eq coin_change(\@denom,5) && print "5c takes 1 coin\n";
 print "=" x 79 . "\n";
-7 eq coin_change(\@denom,7) && print "7c takes 3 coins\n";
+3 eq coin_change(\@denom,7) && print "7c takes 3 coins\n";
